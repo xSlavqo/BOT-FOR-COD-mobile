@@ -11,6 +11,7 @@ def run_all_bots():
     for device in devices:
         bot = Bot(device)
         threading.Thread(target=bot.run, daemon=True).start()
+        time.sleep(60)
 
 if __name__ == "__main__":
     run_all_bots()

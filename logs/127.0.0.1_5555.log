@@ -1,0 +1,30 @@
+2025-04-07 12:52:48,939 - ERROR - [127.0.0.1:5555] Nieobs³u¿ony b³¹d:
+Traceback (most recent call last):
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\bot_instance.py", line 45, in run
+    print(rss(self.device))
+          ^^^^^^^^^^^^^^^^
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\tasks\rss.py", line 17, in rss
+    locate(device, "png/gather2", 0.99, True)
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\utils\locate_adb.py", line 20, in locate
+    template = cv2.imread(template_path, cv2.IMREAD_UNCHANGED)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\panko\AppData\Local\Programs\Python\Python312\Lib\site-packages\ultralytics\utils\patches.py", line 26, in imread
+    return cv2.imdecode(np.fromfile(filename, np.uint8), flags)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'png/gather2'
+
+2025-04-07 12:54:06,305 - ERROR - [127.0.0.1:5555] Nieobs³u¿ony b³¹d:
+Traceback (most recent call last):
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\bot_instance.py", line 45, in run
+    print(rss(self.device))
+          ^^^^^^^^^^^^^^^^
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\tasks\rss.py", line 17, in rss
+    locate(device, "png/gather2.png", 0.99, True)
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\utils\locate_adb.py", line 32, in locate
+    matches, _ = is_image_match(img, template, threshold)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\panko\Desktop\BOT-FOR-COD-mobile\utils\locate_adb.py", line 13, in is_image_match
+    alpha_mask = cv2.merge([template[:, :, 3]] * 3)
+                            ~~~~~~~~^^^^^^^^^
+IndexError: index 3 is out of bounds for axis 2 with size 3
+

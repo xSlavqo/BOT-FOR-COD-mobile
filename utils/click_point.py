@@ -8,4 +8,4 @@ def click_point(device, x, y, offset=10):
     dy = random.randint(-offset, offset)
     time.sleep(random.uniform(0.3, 0.7))
     device.shell(f"input tap {x + dx} {y + dy}")
-    time.sleep(random.uniform(0.2, 0.5))
+    time.sleep(random.uniform(0.7, 2.7))

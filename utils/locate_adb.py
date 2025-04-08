@@ -1,4 +1,4 @@
-# utils/helpers/locate_adb.py
+# utils/locate_adb.py
 import cv2
 import numpy as np
 import time
@@ -9,9 +9,13 @@ def screencap(device):
     return cv2.imdecode(np.frombuffer(img_bytes, np.uint8), cv2.IMREAD_COLOR)
 
 def is_image_match(img, template, threshold):
-    base = template[:, :, :3]
-    alpha_mask = cv2.merge([template[:, :, 3]] * 3)
-    correlation = cv2.matchTemplate(img, base, cv2.TM_CCORR_NORMED, mask=alpha_mask)
+    if template.shape[2] == 4:
+        base = template[:, :, :3]
+        alpha_mask = cv2.merge([template[:, :, 3]] * 3)
+        correlation = cv2.matchTemplate(img, base, cv2.TM_CCORR_NORMED, mask=alpha_mask)
+    else:
+        correlation = cv2.matchTemplate(img, template, cv2.TM_CCORR_NORMED)
+
     max_val = correlation.max()
     matches = list(zip(*np.where(correlation >= threshold)[::-1]))
     return matches, max_val
@@ -38,7 +42,6 @@ def locate(device, template_path, threshold=0.99, max_time=5, click_center=False
                 center_x = match_x + w // 2
                 center_y = match_y + h // 2
 
-                # Losowe przesunięcie w zakresie ±25% szerokości/wysokości
                 offset_x = int(random.uniform(-0.25, 0.25) * w)
                 offset_y = int(random.uniform(-0.25, 0.25) * h)
 

@@ -5,8 +5,8 @@ import time
 import os
 from ppadb.device import Device
 from ppadb.client import Client as AdbClient
-from utils.is_element_visible import is_element_visible
-from utils.click_point import click_point
+
+from tasks.rss import rss
 
 class Bot:
     def __init__(self, device: Device):
@@ -28,7 +28,7 @@ class Bot:
         print(f"🔌 [{self.name}] Próba ponownego połączenia...")
         while True:
             try:
-                client = AdbClient(host="127.0.0.1", port=5037)  # lub 5038 dla BlueStacks
+                client = AdbClient(host="127.0.0.1", port=5037)
                 client.remote_connect(*self.name.split(":"))
                 self.device = client.device(self.name)
                 if self.device is not None:
@@ -40,17 +40,9 @@ class Bot:
 
     def run(self):
         print(f"▶ Bot uruchomiony na {self.name}")
-        REGION = (1244, 302, 36, 38)
-        MODEL_PATH = "models/legions_menu.pt"
-
         while True:
             try:
-                visible = is_element_visible(self.device, MODEL_PATH, REGION)
-                if visible:
-                    print(f"👁️ [{self.name}] Legions menu widoczne")
-                else:
-                    print(f"🚫 [{self.name}] Legions menu niewidoczne")
-
+                print(rss(self.device))
                 time.sleep(5)
 
             except ConnectionError:
