@@ -1,0 +1,5 @@
+train: C:/Users/panko/Desktop/BOT-FOR-COD-mobile/yolo_dataset_builder/train/images
+val: C:/Users/panko/Desktop/BOT-FOR-COD-mobile/yolo_dataset_builder/valid/images
+
+nc: 1
+names: ['build']

@@ -1,6 +1,6 @@
 # bot_runner.py
-from port_connector import connect_and_list_devices
-from bot_instance import Bot
+from control_emu.port_connector import connect_and_list_devices
+from control_emu.bot_instance import Bot
 import threading
 import time
 

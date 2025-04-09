@@ -1,5 +1,0 @@
-# datasets/yolo/data.yaml
-train: C:/Users/panko/Desktop/BOT-FOR-COD-mobile/datasets/yolo/images/train
-val: C:/Users/panko/Desktop/BOT-FOR-COD-mobile/datasets/yolo/images/val
-nc: 1
-names: ["hamburger"]
