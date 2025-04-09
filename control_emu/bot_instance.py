@@ -7,6 +7,7 @@ from ppadb.device import Device
 from ppadb.client import Client as AdbClient
 
 from tasks.rss import rss
+from utils.yolo_detector import detect_with_yolo
 
 class Bot:
     def __init__(self, device: Device):
